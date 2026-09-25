@@ -17,9 +17,19 @@ fbq('init', '28094044373625239');
 fbq('track', 'PageView');
 fbq('track', 'Lead');
 
-setTimeout(function () {
-  window.location.replace('https://chat.whatsapp.com/EtiwavdXoxxBmwUVH8BUdH');
-}, 400);
+// Redireciona assim que o Facebook confirmar PageView + Lead (maximo 2,5s)
+var DESTINO = 'https://chat.whatsapp.com/EtiwavdXoxxBmwUVH8BUdH';
+var foi = false;
+function ir() { if (foi) return; foi = true; window.location.replace(DESTINO); }
+try {
+  var enviados = 0;
+  new PerformanceObserver(function (lista) {
+    lista.getEntries().forEach(function (e) {
+      if (e.name.indexOf('facebook.com/tr') !== -1 && ++enviados >= 2) ir();
+    });
+  }).observe({ type: 'resource', buffered: true });
+} catch (e) {}
+setTimeout(ir, 2500);
 </script>
 </head>
 <body>
