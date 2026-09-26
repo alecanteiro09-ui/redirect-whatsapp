@@ -2,11 +2,165 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Redirecionando...</title>
-<meta http-equiv="refresh" content="3;url=https://chat.whatsapp.com/EtiwavdXoxxBmwUVH8BUdH">
-<style>html,body{margin:0;background:#fff}</style>
+<meta name="theme-color" content="#050505">
+<title>JHL Motors | Repasse Premium</title>
+<meta name="description" content="Entre no grupo VIP da JHL Motors e receba as oportunidades de repasse em primeira mão.">
+<meta property="og:title" content="JHL Motors | Repasse Premium">
+<meta property="og:description" content="Entre no grupo VIP e receba as oportunidades de repasse em primeira mão.">
+<meta property="og:image" content="og.jpg">
+<link rel="preload" as="image" href="logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050505;
+    --ouro: #d9c7a3;
+    --ouro-escuro: #a8936b;
+    --verde: #12c26b;
+    --verde-escuro: #0a8f4d;
+    --texto: #e9e4da;
+    --suave: #9a958c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--texto);
+    font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Linhas verdes diagonais da identidade */
+  body::before, body::after {
+    content: "";
+    position: fixed;
+    width: 70vmax;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--verde) 45%, #7dffbd 50%, var(--verde) 55%, transparent);
+    box-shadow: 0 0 18px var(--verde);
+    transform: rotate(-45deg);
+    opacity: .85;
+    pointer-events: none;
+  }
+  body::before { top: 8vmax; left: -38vmax; }
+  body::after { bottom: 8vmax; right: -38vmax; }
+
+  main {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 440px;
+    padding: 32px 20px calc(32px + env(safe-area-inset-bottom));
+    text-align: center;
+  }
+  .logo {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    aspect-ratio: 800 / 410;
+    margin: 0 auto 28px;
+    -webkit-mask-image: radial-gradient(ellipse 72% 70% at 50% 50%, #000 70%, transparent 100%);
+    mask-image: radial-gradient(ellipse 72% 70% at 50% 50%, #000 70%, transparent 100%);
+  }
+  .selo {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--verde);
+    border: 1px solid rgba(18, 194, 107, .4);
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-size: clamp(24px, 7vw, 30px);
+    font-weight: 800;
+    line-height: 1.2;
+    background: linear-gradient(180deg, #f3e9d4, var(--ouro) 55%, var(--ouro-escuro));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 12px;
+  }
+  p.sub {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--suave);
+    margin: 0 auto 28px;
+    max-width: 340px;
+  }
+  .botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 62px;
+    padding: 16px 20px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, var(--verde), var(--verde-escuro));
+    color: #fff;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: .02em;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 10px 30px rgba(18, 194, 107, .35), inset 0 1px 0 rgba(255, 255, 255, .25);
+    animation: pulso 2.2s ease-in-out infinite;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .12s ease;
+  }
+  .botao:active { transform: scale(.97); }
+  .botao svg { width: 26px; height: 26px; flex: none; }
+  .botao.carregando { opacity: .8; animation: none; }
+  @keyframes pulso {
+    0%, 100% { box-shadow: 0 10px 30px rgba(18, 194, 107, .35), 0 0 0 0 rgba(18, 194, 107, .45), inset 0 1px 0 rgba(255, 255, 255, .25); }
+    50% { box-shadow: 0 10px 30px rgba(18, 194, 107, .35), 0 0 0 12px rgba(18, 194, 107, 0), inset 0 1px 0 rgba(255, 255, 255, .25); }
+  }
+  @media (prefers-reduced-motion: reduce) { .botao { animation: none; } }
+
+  ul.lista {
+    list-style: none;
+    margin: 28px auto 0;
+    display: grid;
+    gap: 10px;
+    text-align: left;
+    max-width: 320px;
+  }
+  ul.lista li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--texto);
+  }
+  ul.lista li::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    flex: none;
+    border-radius: 50%;
+    background: rgba(18, 194, 107, .15) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2312c26b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / 12px no-repeat;
+  }
+  footer {
+    margin-top: 32px;
+    font-size: 11px;
+    letter-spacing: .2em;
+    color: #55524c;
+    text-transform: uppercase;
+  }
+</style>
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -15,24 +169,60 @@ t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '28094044373625239');
 fbq('track', 'PageView');
-fbq('track', 'Lead');
-
-// Redireciona assim que o Facebook confirmar PageView + Lead (maximo 2,5s)
-var DESTINO = 'https://chat.whatsapp.com/EtiwavdXoxxBmwUVH8BUdH';
-var foi = false;
-function ir() { if (foi) return; foi = true; window.location.replace(DESTINO); }
-try {
-  var enviados = 0;
-  new PerformanceObserver(function (lista) {
-    lista.getEntries().forEach(function (e) {
-      if (e.name.indexOf('facebook.com/tr') !== -1 && ++enviados >= 2) ir();
-    });
-  }).observe({ type: 'resource', buffered: true });
-} catch (e) {}
-setTimeout(ir, 2500);
 </script>
 </head>
 <body>
+<main>
+  <img class="logo" src="logo.webp" alt="JHL Motors" width="800" height="410">
+
+  <span class="selo">Grupo VIP</span>
+  <h1>Repasse Premium</h1>
+  <p class="sub">Entre no nosso grupo do WhatsApp e receba as oportunidades de repasse em primeira mão.</p>
+
+  <a id="entrar" class="botao" href="https://chat.whatsapp.com/EtiwavdXoxxBmwUVH8BUdH" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.9.99 6.68 2.77a9.38 9.38 0 0 1 2.76 6.68c0 5.2-4.24 9.44-9.45 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.05.7C5.78.7.68 5.8.68 12.07c0 2 .52 3.96 1.52 5.68L.58 23.3l5.7-1.5a11.33 11.33 0 0 0 5.77 1.47c6.27 0 11.37-5.1 11.37-11.37 0-3.04-1.18-5.9-3.33-8.05z"/></svg>
+    Entrar no grupo
+  </a>
+
+  <ul class="lista">
+    <li>Ofertas enviadas direto no seu WhatsApp</li>
+    <li>Acesso antes de ir para o público</li>
+    <li>Entrada gratuita</li>
+  </ul>
+
+  <footer>JHL Motors</footer>
+</main>
+
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=28094044373625239&ev=PageView&noscript=1"/></noscript>
+
+<script>
+// Lead dispara so no clique do botao; redireciona assim que o Facebook confirmar (maximo 1,2s)
+(function () {
+  var botao = document.getElementById('entrar');
+  var destino = botao.href;
+
+  botao.addEventListener('click', function (ev) {
+    if (!window.fbq) return; // sem pixel: segue o link normal
+    ev.preventDefault();
+    if (botao.classList.contains('carregando')) return;
+    botao.classList.add('carregando');
+
+    var foi = false;
+    function ir() { if (foi) return; foi = true; window.location.href = destino; }
+
+    try {
+      var antes = performance.now();
+      new PerformanceObserver(function (lista) {
+        lista.getEntries().forEach(function (e) {
+          if (e.name.indexOf('facebook.com/tr') !== -1 && e.name.indexOf('ev=Lead') !== -1 && e.startTime >= antes) ir();
+        });
+      }).observe({ type: 'resource', buffered: true });
+    } catch (e) {}
+
+    fbq('track', 'Lead');
+    setTimeout(ir, 1200);
+  });
+})();
+</script>
 </body>
 </html>
