@@ -209,11 +209,19 @@ fbq('track', 'PageView');
   var botao = document.getElementById('entrar');
   var destino = botao.href;
 
+  function jaEnviou() { try { return sessionStorage.getItem('jhl_lead') === '1'; } catch (e) { return false; } }
+  function marcarEnviado() { try { sessionStorage.setItem('jhl_lead', '1'); } catch (e) {} }
+
+  // Voltou do WhatsApp pela seta do navegador: destrava o botao
+  window.addEventListener('pageshow', function () { botao.classList.remove('carregando'); });
+
   botao.addEventListener('click', function (ev) {
     if (!window.fbq && !window.ttq) return; // sem pixel: segue o link normal
+    if (jaEnviou()) return; // evento ja enviado nesta visita: so segue o link, sem duplicar
     ev.preventDefault();
     if (botao.classList.contains('carregando')) return;
     botao.classList.add('carregando');
+    marcarEnviado();
 
     var foi = false;
     function ir() { if (foi) return; foi = true; window.location.href = destino; }
