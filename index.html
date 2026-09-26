@@ -170,6 +170,13 @@ document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '28094044373625239');
 fbq('track', 'PageView');
 </script>
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D9T53DJC77U6RO6J7570');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
 </head>
 <body>
 <main>
@@ -196,13 +203,14 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=28094044373625239&ev=PageView&noscript=1"/></noscript>
 
 <script>
-// Lead dispara so no clique do botao; redireciona assim que o Facebook confirmar (maximo 1,2s)
+// Lead (Facebook) e Contact (TikTok) disparam so no clique do botao;
+// redireciona assim que os dois confirmarem (maximo 1,5s)
 (function () {
   var botao = document.getElementById('entrar');
   var destino = botao.href;
 
   botao.addEventListener('click', function (ev) {
-    if (!window.fbq) return; // sem pixel: segue o link normal
+    if (!window.fbq && !window.ttq) return; // sem pixel: segue o link normal
     ev.preventDefault();
     if (botao.classList.contains('carregando')) return;
     botao.classList.add('carregando');
@@ -210,17 +218,22 @@ fbq('track', 'PageView');
     var foi = false;
     function ir() { if (foi) return; foi = true; window.location.href = destino; }
 
+    var fbOk = !window.fbq, ttOk = !window.ttq;
     try {
       var antes = performance.now();
       new PerformanceObserver(function (lista) {
         lista.getEntries().forEach(function (e) {
-          if (e.name.indexOf('facebook.com/tr') !== -1 && e.name.indexOf('ev=Lead') !== -1 && e.startTime >= antes) ir();
+          if (e.startTime < antes) return;
+          if (e.name.indexOf('facebook.com/tr') !== -1 && e.name.indexOf('ev=Lead') !== -1) fbOk = true;
+          if (/analytics\.tiktok\.com\/api\/v2\/pixel(\?|$)/.test(e.name)) ttOk = true;
+          if (fbOk && ttOk) ir();
         });
       }).observe({ type: 'resource', buffered: true });
     } catch (e) {}
 
-    fbq('track', 'Lead');
-    setTimeout(ir, 1200);
+    if (window.fbq) fbq('track', 'Lead');
+    if (window.ttq) ttq.track('Contact');
+    setTimeout(ir, 1500);
   });
 })();
 </script>
